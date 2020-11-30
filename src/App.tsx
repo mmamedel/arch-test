@@ -1,18 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Counter } from './components/counter';
 
 interface AppProps {}
 
+
 function App({}: AppProps) {
-  // Create the count state.
-  const [count, setCount] = useState(0);
-  // Create the counter (+1 every second).
-  useEffect(() => {
-    const timer = setTimeout(() => setCount(count + 1), 1000);
-    return () => clearTimeout(timer);
-  }, [count, setCount]);
-  // Return the App component.
   return (
     <div className="App">
       <header className="App-header">
@@ -20,9 +14,7 @@ function App({}: AppProps) {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <p>
-          Page has been open for <code>{count}</code> seconds.
-        </p>
+        <Counter initialCountValue={10} />
         <p>
           <a
             className="App-link"
